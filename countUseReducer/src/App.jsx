@@ -46,6 +46,7 @@ function App() {
         </svg>
       </a>
       <h1>Count:{state.count}</h1>
+      <h3>Counter:{state.count}</h3>
       <div href="#" class="inline-flex font-medium items-center">
         <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
