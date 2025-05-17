@@ -1,8 +1,9 @@
-import { useState } from "react";
-
+import { useReducer, useState } from "react";
 import "./App.css";
-
+import { CountReducer } from "./reducer/CountReducer";
+const intialState = { count: 0 };
 function App() {
+  const [state, dispatch] = useReducer(CountReducer, intialState);
   return (
     <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
       <svg
@@ -44,6 +45,21 @@ function App() {
           />
         </svg>
       </a>
+      <h1>Count:{state.count}</h1>
+      <div href="#" class="inline-flex font-medium items-center">
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+          onClick={() => dispatch({ type: "increase" })}
+        >
+          Increase
+        </button>
+        <button
+          class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full"
+          onClick={() => dispatch({ type: "decrease" })}
+        >
+          Decrease
+        </button>
+      </div>
     </div>
   );
 }
